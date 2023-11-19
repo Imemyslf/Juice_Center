@@ -24,7 +24,7 @@
             <th>juice price</th>
             <th>Protein value</th>
         </tr>
-
+    
         <?php
             while($row = mysqli_fetch_array($ta_sql)){
                 ?>

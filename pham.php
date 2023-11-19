@@ -83,7 +83,10 @@
                 ?>
                 <tr>
                     <td>
-                       <a href="sign_up.html" target="_blank" ><?php echo $row['juice_name']; ?></a> 
+                       <input type="checkbox">
+                       <a href="sign_up.html" target="_blank" >
+                        <?php echo $row['juice_name']; ?>
+                        </a> 
                     </td>
                     <td>
                         <?php echo $row['juice_price']; ?>
