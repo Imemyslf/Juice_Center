@@ -62,6 +62,13 @@
     </style>
 </head>
 <body>
+<header>
+        <nav>
+            <a href="" target = "">Home</a>
+            <a href="" target = "">Contact Us</a>
+            <a href="" target = "">Sign up</a>
+        </nav>
+    </header>
 
 <h2>Selected Juices</h2>
 
@@ -104,6 +111,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<option value='Gpay' selected>GPay</option>";
         echo "</select>";
 
+        echo "<input type='hidden' name='selected_juices' value='" . htmlspecialchars(implode(', ', $_POST['selected_juices'])) . "'>";
+
         echo "<br><br><button type='submit'>Submit Order</button>";
         echo "</form>";
     } else {
@@ -113,6 +122,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<p>Invalid request.</p>";
 }
 ?>
-
+<footer>
+        &copy
+    </footer>
 </body>
 </html>

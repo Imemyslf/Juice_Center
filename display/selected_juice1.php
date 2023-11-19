@@ -10,18 +10,31 @@
             background-color: #f4f4f4;
         }
 
-        table {
+        /* table {
+            border-radius: 50%;
             border-collapse: collapse;
             width: 50%;
             margin: 20px auto;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+        } */
 
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
+        table {
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 15px; /* Adjust the border-radius value */
+        overflow: hidden;
+        width: 50%;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border: none; /* Remove borders from td elements */
+    }
 
         th {
             background-color: #3498db;
@@ -47,16 +60,16 @@
         }
 
         #button-container {
-            display: flex;
-            justify-content: space-between;
-            width: 10%;
-            margin: 10px auto;
-        }
+        display: flex;
+        justify-content: space-between;
+        width: 20%; /* Adjust the width of the container */
+        margin: 10px auto;
+    }
 
-        #click, #rs {
-            width: 100px; /* Adjust the width of the buttons */
-            padding: 10px;
-        }
+    #click, #rs {
+        width: 100px; /* Adjust the width of the buttons */
+        padding: 10px;
+    }
     </style>
     <script>
         function uncheckCheckboxes() {
@@ -68,6 +81,13 @@
     </script>
 </head>
 <body>
+<header>
+        <nav>
+            <a href="" target = "">Home</a>
+            <a href="" target = "">Contact Us</a>
+            <a href="" target = "">Sign up</a>
+        </nav>
+    </header>
     <?php
     $server = "localhost";
     $user = "root";
@@ -103,7 +123,7 @@
                     <tr>
                         <td>
                            <input type="checkbox" name="selected_juices[]" value="<?php echo $row['juice_name'] . '|' . $row['juice_price']; ?>">
-                           <a href="sign_up.html" target="_blank" >
+                           <a href="" >
                             <?php echo $row['juice_name']; ?>
                             </a> 
                         </td>
@@ -123,5 +143,8 @@
             <input id="rs" type="reset" value="Reset" onclick="uncheckCheckboxes()">
         </div>
     </form>
+    <footer>
+        &copy
+    </footer>
 </body>
 </html>
