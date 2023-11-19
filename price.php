@@ -4,32 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juice Pamphlet</title>
-    <style>
-    </style>
-</head>
-<body>
-
-</body>
-</html>
-<?php
+    <?php
     $server = "localhost";
     $user = "root";
     $password = "";
     $database = "juice_c";
-    $conn = mysqli_connect($server,$user,$password,$database);
+    $conn = mysqli_connect($server, $user, $password, $database);
 
     $sql = "Select * from juice";
-    $ta_sql = mysqli_query($conn,$sql);
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    $ta_sql = mysqli_query($conn, $sql);
+    ?>
     <style>
-           body {
+        body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
         }
@@ -59,6 +45,7 @@
         tr:hover {
             background-color: #d4e6f1;
         }
+
         a {
             text-decoration: none;
             color: #3498db;
@@ -71,6 +58,7 @@
     </style>
 </head>
 <body>
+<form action="./jp.php" method="post">
     <table align="center" border="1px">
         <tr>
             <th>juice name</th>
@@ -79,25 +67,28 @@
         </tr>
 
         <?php
-            while($row = mysqli_fetch_array($ta_sql)){
-                ?>
-                <tr>
-                    <td>
-                       <input type="checkbox">
-                       <a href="sign_up.html" target="_blank" >
+        while ($row = mysqli_fetch_array($ta_sql)) {
+            ?>
+            <tr>
+                <td>
+                    <input type="checkbox" name="selected_juices[]" value="<?php echo $row['juice_name'] . '|' . $row['juice_price']; ?>">
+                    <a href="sign_up.html" target="_blank">
                         <?php echo $row['juice_name']; ?>
-                        </a> 
-                    </td>
-                    <td>
-                        <?php echo $row['juice_price']; ?>
-                    </td>
-                    <td>
-                        <?php echo $row['protein_value']; ?>
-                    </td>
-                </tr>
+                    </a>
+                </td>
+                <td>
+                    <?php echo $row['juice_price']; ?>
+                </td>
+                <td>
+                    <?php echo $row['protein_value']; ?>
+                </td>
+            </tr>
             <?php
-            }
+        }
         ?>
     </table>
+    <button type="submit">Submit</button><br><br>
+</form>
 </body>
 </html>
+
