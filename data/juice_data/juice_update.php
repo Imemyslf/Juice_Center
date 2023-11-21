@@ -8,9 +8,10 @@ $conn = mysqli_connect($server, $user, $password, $database);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
 $id = $_POST["id_1"];
 $name = $_POST["name"];
+$price = $_POST["price"];
+$protein = $_POST["p_value"];
 
 $selectQuery = "SELECT * FROM juice";
 $result = mysqli_query($conn, $selectQuery);
@@ -38,8 +39,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 echo "</table>";
 
-$updateQuery = "UPDATE `juice` SET juice_name = '$name' WHERE juice_id = $id";
-
+$updateQuery = "UPDATE `juice` SET juice_name = '$name', juice_price = '$price', protein_value = '$protein' WHERE juice_id = $id";
 
 // Execute the update query
 mysqli_query($conn, $updateQuery);

@@ -28,7 +28,8 @@
 	// 			)";
 	
 	$table = "ALTER TABLE `customer`
-	ADD AUTO_INCREMENT PRIMARY KEY cust_sno int(3)`";
+	ADD COLUMN phone_number varchar(15) UNIQUE";
+
 	
 	$r1 = mysqli_query($conn, $table);
 	if ($r1)
