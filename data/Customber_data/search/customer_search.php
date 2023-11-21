@@ -14,7 +14,7 @@
             if (selectedField === "email") {
                 inputType = "email";
             }
-            if (selectedField === "password") {
+            if (selectedField === "pass_word") {
                 inputType = "password";
             }
 
