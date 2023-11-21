@@ -3,20 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Customer</title>
+    <title>Search Juice</title>
     <script>
         function showInput() {
             var selectedField = document.getElementById("searchField").value;
             var inputContainer = document.getElementById("inputContainer");
             var inputType = "text";
-
-            // If the selected field is "email" or "pass_word", use type="password"
-            if (selectedField === "email") {
-                inputType = "email";
-            }
-            if (selectedField === "pass_word") {
-                inputType = "password";
-            }
 
             // Display the input textbox
             inputContainer.innerHTML = '<label for="searchValue">Enter ' + selectedField + ':</label>' +
@@ -32,16 +24,15 @@
             <a href="" target = "">Sign up</a>
         </nav>
     </header>
-    <h2>Search Customer</h2>
+    <h2>Search Juice</h2>
     <form action="" method="post">
 
         <label for="searchField">Select Field to Search:</label>
         <select id="searchField" name="searchField" onchange="showInput()">
-            <option value="cust_sno">Customer Serial Number</option>
-            <option value="cust_name">Customer Name</option>
-            <option value="email">Email</option>
-            <option value="pass_word">Password</option>
-            <option value="phone_number">Phone Number</option>
+            <option value="Juice_id">Juice ID</option>
+            <option value="Juice_name">Juice Name</option>
+            <option value="Juice_price">Juice Price</option>
+            <option value="Protein_value">Protein Value</option>
         </select>
         <br><br>
 
@@ -66,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     $searchValue = mysqli_real_escape_string($conn, $_POST["searchValue"]);
 
     if (!empty($searchField) && !empty($searchValue)) {
-        $searchQuery = "SELECT * FROM `customer` WHERE `$searchField` = '$searchValue'";
+        $searchQuery = "SELECT * FROM `juice` WHERE `$searchField` = '$searchValue'";
         
         // Execute the search query
         $result = mysqli_query($conn, $searchQuery);
@@ -83,20 +74,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
             echo "<h3>Search Results:</h3>";
             echo "<table border='1'>
             <tr>
-            <th>S.no</th>
-            <th>Customer Name</th>
-            <th>Email address</th>
-            <th>Password</th>
-            <th>Phone number</th>
+            <th>Juice id</th>
+            <th>Juice Name</th>
+            <th>Juice Price</th>
+            <th>Protein value</th>
             </tr>";
 
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td>" . $row['cust_sno'] . "</td>";
-                echo "<td>" . $row['cust_name'] . "</td>";
-                echo "<td>" . $row['email'] . "</td>";
-                echo "<td>" . $row['pass_word'] . "</td>";
-                echo "<td>" . $row['phone_number'] . "</td>";
+                echo "<td>" . $row['juice_id'] . "</td>";
+                echo "<td>" . $row['juice_name'] . "</td>";
+                echo "<td>" . $row['juice_price'] . "</td>";
+                echo "<td>" . $row['protein_value'] . "</td>";
                 echo "</tr>";
             }
 

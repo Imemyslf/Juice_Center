@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Customer Detail</title>
+    <title>Delete Record</title>
 </head>
 <body>
     <header>
@@ -14,9 +14,7 @@
         </nav>
     </header>
     <form action="" method="post">
-        <!-- id : <input type="number" name = "cust_id" placeholder="Enter you 4 digit id please"><br><br>
-        <form action="" method="post"> -->
-    id : <input type="number" name="cust_id" placeholder="Enter your 4-digit ID, please"><br><br>
+    Juice id : <input type="number" name="juice_id" placeholder="Enter your 4-digit ID, please"><br><br>
     <input type="submit" name="submit"> &nbsp;&nbsp; <input type="reset">
 </form>
 <?php
@@ -31,9 +29,9 @@ if (!$conn) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-    $cust_sno = mysqli_real_escape_string($conn, $_POST["cust_id"]);
+    $juice_id = mysqli_real_escape_string($conn, $_POST["juice_id"]);
 
-    $selectQuery = "SELECT * FROM customer";
+    $selectQuery = "SELECT * FROM juice";
     $result = mysqli_query($conn, $selectQuery);
 
     if (!$result) {
@@ -42,26 +40,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     echo "Before delete";
     echo "<table border='1'>
     <tr>
-    <th>S.no</th>
-    <th>Customer Name</th>
-    <th>Email address</th>
-    <th>Password</th>
-    <th>Phone number</th>
+    <th>Juice id</th>
+    <th>Juice Name</th>
+    <th>Juice Price</th>
+    <th>Protein value</th>
     </tr>";
 
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row['cust_sno'] . "</td>";
-        echo "<td>" . $row['cust_name'] . "</td>";
-        echo "<td>" . $row['email'] . "</td>";
-        echo "<td>" . $row['pass_word'] . "</td>";
-        echo "<td>" . $row['phone_number'] . "</td>";
+        echo "<td>" . $row['juice_id'] . "</td>";
+        echo "<td>" . $row['juice_name'] . "</td>";
+        echo "<td>" . $row['juice_price'] . "</td>";
+        echo "<td>" . $row['protein_value'] . "</td>";
         echo "</tr>";
     }
 
     echo "</table><br><br>";
 
-    $checkQuery = "SELECT * FROM customer WHERE cust_sno = $cust_sno";
+    $checkQuery = "SELECT * FROM juice WHERE juice_id = $juice_id";
     $checkResult = mysqli_query($conn, $checkQuery);
 
     if (!$checkResult) {
@@ -70,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 
     if (mysqli_num_rows($checkResult) > 0) {
         // Record exists, proceed with delete
-        $deleteQuery = "DELETE FROM `customer` WHERE cust_sno = $cust_sno";
+        $deleteQuery = "DELETE FROM `juice` WHERE juice_id = $juice_id";
 
         // Execute the delete query
         if (mysqli_query($conn, $deleteQuery)) {
@@ -83,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     }
 
     // Display data
-    $selectQuery = "SELECT * FROM customer";
+    $selectQuery = "SELECT * FROM juice";
     $result = mysqli_query($conn, $selectQuery);
 
     if (!$result) {
@@ -94,20 +90,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     echo "After delete";
     echo "<table border='1'>
     <tr>
-    <th>S.no</th>
-    <th>Customer Name</th>
-    <th>Email address</th>
-    <th>Password</th>
-    <th>Phone number</th>
+    <th>Juice id</th>
+    <th>Juice Name</th>
+    <th>Juice Price</th>
+    <th>Protein value</th>
     </tr>";
 
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row['cust_sno'] . "</td>";
-        echo "<td>" . $row['cust_name'] . "</td>";
-        echo "<td>" . $row['email'] . "</td>";
-        echo "<td>" . $row['pass_word'] . "</td>";
-        echo "<td>" . $row['phone_number'] . "</td>";
+        echo "<td>" . $row['juice_id'] . "</td>";
+        echo "<td>" . $row['juice_name'] . "</td>";
+        echo "<td>" . $row['juice_price'] . "</td>";
+        echo "<td>" . $row['protein_value'] . "</td>";
         echo "</tr>";
     }
 

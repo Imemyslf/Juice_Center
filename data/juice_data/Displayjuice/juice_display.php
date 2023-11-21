@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Display Juice Table</title>
 </head>
 <body>
+<header>
+        <nav>
+            <a href="" target = "">Home</a>
+            <a href="" target = "">Contact Us</a>
+            <a href="" target = "">Sign up</a>
+        </nav>
+    </header>
     <?php
         $server = "localhost";
         $user = "root";
@@ -45,5 +52,8 @@
 
         mysqli_close($conn);
     ?>
+    <footer>
+        &copy
+    </footer>
 </body>
 </html>

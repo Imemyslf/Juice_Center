@@ -6,6 +6,13 @@
     <title>Customer Registration</title>
 </head>
 <body>
+<header>
+        <nav>
+            <a href="" target = "">Home</a>
+            <a href="" target = "">Contact Us</a>
+            <a href="" target = "">Sign up</a>
+        </nav>
+    </header>
     <h2>Customer Registration</h2>
     <form action="" method="post">
         <label for="cust_id">Customer id:</label>
@@ -60,6 +67,8 @@
 
         mysqli_close($conn);
         ?>
-
+    <footer>
+        &copy
+    </footer>
 </body>
 </html>

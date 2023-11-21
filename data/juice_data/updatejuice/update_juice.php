@@ -19,42 +19,130 @@
             });
         }
     </script>
+    <style>
+            body {
+            margin: 0;
+            padding: 0;
+            background-color: #FFE4B5; /* Light orange background */
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header {
+            margin: 0px;
+            padding:0px;
+            background-color: #FFA500; /* Orange header background */
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        #formContainer {
+            margin: 5vh;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            box-sizing: border-box;
+        }
+
+        form {
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            background-color: #FFA500;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #FF8C00;
+        }
+
+        footer {
+            background-color: #FFA500; /* Orange footer background */
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
-    <h2>Update Juice</h2>
-    <form action="" method="post">
-        <label for="juice_id">Juice ID:</label>
-        <input type="text" name="juice_id" required>
-        <br><br>
-
-        <label for="updateFields">Select Fields to Update:</label>
-        <select id="updateFields" name="updateFields[]" onchange="showFields()" multiple>
-            <option value="juice_name">Juice Name:</option>
-            <option value="juice_price">Juice Price</option>
-            <option value="protein_value">Password</option>
-        </select>
-        <br><br>
-
-        <div id="juice_nameContainer" style="display: none;">
-            <label for="juice_name">Juice Name:</label>
-            <input type="text" name="juice_name">
+<header>
+        <nav>
+            <a href="" target = "">Home</a>
+            <a href="" target = "">Contact Us</a>
+            <a href="" target = "">Sign up</a>
+        </nav>
+    </header>
+    <div id="formContainer">
+        <h2>Update Juice</h2>
+        <form action="" method="post">
+            <label for="juice_id">Juice ID:</label>
+            <input type="text" name="juice_id" required>
             <br><br>
-        </div>
 
-        <div id="juice_priceContainer" style="display: none;">
-            <label for="juice_price">Juice Price:</label>
-            <input type="text" name="juice_price">
+            <label for="updateFields">Select Fields to Update:</label>
+            <select id="updateFields" name="updateFields[]" onchange="showFields()" >
+                <option value="juice_name">Juice Name:</option>
+                <option value="juice_price">Juice Price</option>
+                <option value="protein_value">Password</option>
+            </select>
             <br><br>
-        </div>
 
-        <div id="protein_valueContainer" style="display: none;">
-            <label for="protein_value">Password:</label>
-            <input type="password" name="protein_value">
-            <br><br>
-        </div>
+            <div id="juice_nameContainer" style="display: none;">
+                <label for="juice_name">Juice Name:</label>
+                <input type="text" name="juice_name">
+                <br><br>
+            </div>
 
-        <input type="submit" name="submit" value="Update">
-    </form>
+            <div id="juice_priceContainer" style="display: none;">
+                <label for="juice_price">Juice Price:</label>
+                <input type="text" name="juice_price">
+                <br><br>
+            </div>
+
+            <div id="protein_valueContainer" style="display: none;">
+                <label for="protein_value">Password:</label>
+                <input type="text" name="protein_value">
+                <br><br>
+            </div>
+
+            <input type="submit" name="submit" value="Update">
+        </form>
+
+    </div>
 
     <?php
     $server = "localhost";
@@ -97,5 +185,8 @@
 
     mysqli_close($conn);
     ?>
+    <footer>
+        &copy
+    </footer>
 </body>
 </html>

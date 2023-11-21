@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juice Centre Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 20px auto;
+        }
+        .user-data {
+            width: 100%;
+            text-align: center;
+        }
+        .user-data label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .user-data input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Juice Centre</h1>
+    <div class="profile-pic">
+        <img src="https://via.placeholder.com/200" alt="Profile Picture">
+    </div>
+    <div class="user-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="John Doe" readonly>
+       
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" value="25" readonly>
+       
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" value="john.doe@example.com" readonly>
+       
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" value="1234567890" readonly>
+    </div>
+</body>
+</html>
