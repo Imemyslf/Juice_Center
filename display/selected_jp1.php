@@ -75,7 +75,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if selected_juices array is set
-    if (isset($_POST['selected_juices']) && !empty($_POST['selected_juices'])) {
+    if (isset($_POST['selected_juices'])) {
         echo "<p>You have selected the following juices:</p>";
         echo "<ul>";
 

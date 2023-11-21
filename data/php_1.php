@@ -27,8 +27,8 @@
 	// 			nutrition_value float
 	// 			)";
 	
-	$table = "ALTER TABLE `juice`
-	CHANGE COLUMN nutrition_value protein_value VARCHAR(10)";
+	$table = "ALTER TABLE `customer`
+	ADD AUTO_INCREMENT PRIMARY KEY cust_sno int(3)`";
 	
 	$r1 = mysqli_query($conn, $table);
 	if ($r1)

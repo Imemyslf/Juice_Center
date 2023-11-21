@@ -3,9 +3,10 @@
     $name = $_POST["fname"];
     $emai = $_POST["email_id"];
     $pass = $_POST["pass_id"];
-    $custid = $_POST["id_1"];
+    $nos = $_POST["nos"];
+    // $juiceid = NULL;
 
-    echo $id."<br>".$name . "<br>". $emai."<br>". $pass . "<br>" .$custid . "<br>";
+    echo $id."<br>".$name . "<br>". $emai."<br>". $pass . "<br>" . $nos . "<br>";
     $server = "localhost";
     $user = "root";
     $password = "";
@@ -18,7 +19,7 @@
 		echo "Connection Not Successsful";
 		exit();
 	}
-    $q1 = "INSERT INTO `customer` ( cust_name, email, pass_word, cust_id) VALUES ( '$name', '$emai', '$pass', '$custid')";
+    $q1 = "INSERT INTO `customer` ( cust_name, email, pass_word, phone_number) VALUES ( '$name', '$emai', '$pass', '$nos')";
 
 
     $r1 = mysqli_query($conn,$q1);

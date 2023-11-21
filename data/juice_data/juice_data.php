@@ -10,8 +10,7 @@
     $password = "";
     $database = "juice_c";
     $conn = mysqli_connect($server,$user,$password,$database);
-    if ($conn)
-		echo "Connection Sucessful";
+    if ($conn){}
 	else
 	{
 		echo "Connection Not Successsful";
