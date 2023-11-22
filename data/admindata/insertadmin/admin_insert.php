@@ -66,7 +66,7 @@
         }
 
         input[type="submit"], input[type="reset"] {
-            background-color: #FFA500;
+            background-color: #FFA500;  
             color: white;
             cursor: pointer;
         }
@@ -96,7 +96,7 @@
         </nav>
     </header>
     <div id="formContainer">
-    <h2>Customer Registration</h2>
+    <h2>Admin Registration</h2>
     <form action="" method="post">
         <label for="cust_id">Admin id:</label>
         <input type="text" name="cust_id" required>

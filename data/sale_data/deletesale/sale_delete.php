@@ -21,7 +21,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
+            /* width: 100%; */
             background-color: #FFA500; /* Orange header background */
             padding: 10px;
             text-align: center;
@@ -91,7 +91,7 @@
 <body>
     <header>
         <nav>
-            <a href="" target = "">Home</a>
+            <a href="../../h_data.html" target = "">Home</a>
             <a href="" target = "">Contact Us</a>
             <a href="" target = "">Sign up</a>
         </nav>

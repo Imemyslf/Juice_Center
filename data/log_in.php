@@ -12,6 +12,7 @@
     </script>
     <style>
         body {
+            background-image: url(../images/j2.jpeg);
             margin: 0;
             padding: 0;
             background-color: #FFE4B5; /* Light orange background */
@@ -21,6 +22,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            backdrop-filter: blur(5px);
         }
 
         #loginContainer {
@@ -48,7 +50,7 @@
         }
 
         input[type="submit"] {
-            background-color: #FFA500;
+            background-color: #FF5555;
             color: white;
             cursor: pointer;
         }
@@ -93,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result ) {
         // Login successful
         // echo "Login successful";
-        header("Location :../data/h_data.html");
+        header("Location: ../data/h_data.html");
         exit();
     } else {
         // Login failed

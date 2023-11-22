@@ -111,11 +111,11 @@
         <br><br>
 
         <label for="pass_word">Password:</label>
-        <input type="password" name="pass_word" required>
+        <input type="password" name="pass_word" minlength="6" maxlenght="10"required>
         <br><br>
 
         <label for="phone_number">Phone Number:</label>
-        <input type="tel" name="phone_number" required>
+        <input type="tel" name="phone_number" maxlength="10" required>
         <br><br>
 
         <input type="submit" value="Register">

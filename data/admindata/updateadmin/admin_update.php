@@ -89,7 +89,7 @@
     <script>
         function showFields() {
             var selectedFields = document.getElementById("updateFields").value;
-            var fields = ["ad_name", "email", "pass_word"];
+            var fields = ["ad_name", "ad_email", "ad_pass"];
 
             fields.forEach(function(field) {
                 var element = document.getElementById(field + "Container");
@@ -111,7 +111,7 @@
         </nav>
     </header>
     <div id="formContainer">
-    <h2>Update Customer</h2>
+    <h2>Update Admin</h2>
     <form action="" method="post">
         <label for="ad_id">Admin ID:</label>
         <input type="text" name="ad_id" required>
@@ -120,8 +120,8 @@
         <label for="updateFields">Select Fields to Update:</label>
         <select id="updateFields" name="updateFields[]" onchange="showFields()" >
             <option value="ad_name">Admin Name</option>
-            <option value="email">Email</option>
-            <option value="pass_word">Password</option>
+            <option value="ad_email">Email</option>
+            <option value="ad_pass">Password</option>
         </select>
         <br><br>
 
@@ -131,15 +131,15 @@
             <br><br>
         </div>
 
-        <div id="emailContainer" style="display: none;">
-            <label for="email">Email:</label><br>
-            <input type="email" name="email">
+        <div id="ad_emailContainer" style="display: none;">
+            <label for="ad_email">Email:</label><br>
+            <input type="email" name="ad_email">
             <br><br>
         </div>
 
-        <div id="pass_wordContainer" style="display: none;">
-            <label for="pass_word">Password:</label>
-            <input type="password" name="pass_word">
+        <div id="ad_pass" style="display: none;">
+            <label for="ad_pass">Password:</label>
+            <input type="password" name="ad_pass">
             <br><br>
         </div>
 

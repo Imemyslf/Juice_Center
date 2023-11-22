@@ -88,7 +88,7 @@
     </style>
 </head>
 <body>
-<header>
+    <header>
         <nav>
             <a href="../../h_data.html" target="_blank">Home</a>
             <a href="#" target="_blank">Contact Us</a>
@@ -97,7 +97,7 @@
     </header>
     <div id="formContainer">
     <form action="" method="post">
-    Customer id : <input type="number" name="ad_id" placeholder="Enter your 4-digit ID, please"><br><br>
+    Admin id : <input type="number" name="ad_id" placeholder="Enter your 4-digit ID, please"><br><br>
     <input type="submit" name="submit"> &nbsp;&nbsp; <input type="reset">
 </form>
     </div>
@@ -113,7 +113,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ad_id = mysqli_real_escape_string($conn, $_POST["ad_id"]);
 
     $selectQuery = "SELECT * FROM admin";

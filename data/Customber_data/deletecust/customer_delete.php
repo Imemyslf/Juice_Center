@@ -122,27 +122,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     if (!$result) {
         die("Query failed: " . mysqli_error($conn));
     }
-    echo "Before delete";
-    echo "<table border='1'>
-    <tr>
-    <th>S.no</th>
-    <th>Customer Name</th>
-    <th>Email address</th>
-    <th>Password</th>
-    <th>Phone number</th>
-    </tr>";
-
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>";
-        echo "<td>" . $row['cust_sno'] . "</td>";
-        echo "<td>" . $row['cust_name'] . "</td>";
-        echo "<td>" . $row['email'] . "</td>";
-        echo "<td>" . $row['pass_word'] . "</td>";
-        echo "<td>" . $row['phone_number'] . "</td>";
-        echo "</tr>";
-    }
-
-    echo "</table><br><br>";
 
     $checkQuery = "SELECT * FROM customer WHERE cust_sno = $cust_sno";
     $checkResult = mysqli_query($conn, $checkQuery);
@@ -162,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
             echo "Error deleting record: " . mysqli_error($conn);
         }
     } else {
-        echo "Record with ID $cust_id does not exist";
+        echo "Record with ID $cust_sno does not exist";
     }
 
     // Display data
@@ -173,28 +152,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         die("Query failed: " . mysqli_error($conn));
     }
 
-    
-    echo "After delete";
-    echo "<table border='1'>
-    <tr>
-    <th>S.no</th>
-    <th>Customer Name</th>
-    <th>Email address</th>
-    <th>Password</th>
-    <th>Phone number</th>
-    </tr>";
-
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>";
-        echo "<td>" . $row['cust_sno'] . "</td>";
-        echo "<td>" . $row['cust_name'] . "</td>";
-        echo "<td>" . $row['email'] . "</td>";
-        echo "<td>" . $row['pass_word'] . "</td>";
-        echo "<td>" . $row['phone_number'] . "</td>";
-        echo "</tr>";
-    }
-
-    echo "</table>";
 }
 
 mysqli_close($conn);

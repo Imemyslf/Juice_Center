@@ -90,7 +90,8 @@
 <body>
     <header>
         <nav>
-            <a href="../../h_data.html" target="_blank">Home</a>
+            fodrechya gandu kishan
+            <a href="" target="_blank">Home</a>
             <a href="#" target="_blank">Contact Us</a>
             <a href="#" target="_blank">Sign up</a>
         </nav>
