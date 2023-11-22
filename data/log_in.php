@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <script>
+        function redirecttohome(){
+            window.location.href = "../../data/h_data.html";
+        }
+    </script>
     <style>
         body {
             margin: 0;
@@ -55,8 +61,8 @@
 <body>
     <div id="loginContainer">
         <h2>Login</h2>
-        <form action="login_process.php" method="post">
-            Email: <input type="email" name="email" placeholder="Enter your email" required><br>
+        <form action="" onsubmit = "redirecttoohome()" method="post">
+            Email: <input type="text" name="email" placeholder="Enter your email" required><br>
             Password: <input type="password" name="password" placeholder="Enter your password" required><br>
             <input type="submit" value="Login">
         </form>
@@ -77,17 +83,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = mysqli_real_escape_string($conn, $_POST["password"]);
 
     // Check if the entered email and password match any record in the admin table
-    $query = "SELECT * FROM admin WHERE ad_email ='$email' AND ad_pass ='$password'";
+    $query = "SELECT * FROM `admin` WHERE ad_email ='$email' AND ad_pass ='$password'";
     $result = mysqli_query($conn, $query);
 
     if (!$result) {
         die("Query failed: " . mysqli_error($conn));
     }
 
-    if (mysqli_num_rows($result) > 0) {
+    if ($result ) {
         // Login successful
-        echo '<script>alert("Logged in successful!");</script>';
-        header("Location: ./Home.html");
+        // echo "Login successful";
+        header("Location :../data/h_data.html");
         exit();
     } else {
         // Login failed

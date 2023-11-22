@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juice data</title>
+    <title>Admin Registration</title>
     <style>
      body {
             margin: 0;
@@ -44,7 +44,7 @@
             margin: 5vh;
             border: 2px solid black;
             border-radius: 10px;
-            padding: 20px;
+            padding: 10px;
             background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 300px;
@@ -58,8 +58,8 @@
         }
 
         input {
-            margin-bottom: 15px;
-            padding: 10px;
+            margin-bottom: 2px;
+            padding: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
@@ -96,13 +96,27 @@
         </nav>
     </header>
     <div id="formContainer">
-        <form action="" method="post">
-            id : <input type="number" name="id_1" placeholder="Enter your 4-digit id please"><br>
-            Juice Name: <input type="text" name="name" placeholder="Enter the Juice name please."><br>
-            Juice Price: <input type="text" name="price" placeholder="Enter the price of the juice"><br>
-            Protein value: <input type="text" name="p_value" placeholder="Enter Protein value of the juice."><br>
-            <input type="submit"> &nbsp;&nbsp; <input type="reset">
-        </form>
+    <h2>Customer Registration</h2>
+    <form action="" method="post">
+        <label for="cust_id">Admin id:</label>
+        <input type="text" name="cust_id" required>
+        <br><br>
+
+        <label for="cust_name">Admin Name:</label>
+        <input type="text" name="cust_name" required>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+        <br><br>
+
+        <label for="pass_word">Password:</label>
+        <input type="password" name="pass_word" required>
+        <br><br>
+
+        <input type="submit" value="Register">
+        <input type="reset" value = "Reset">
+    </form>
     </div>
     
     <?php
@@ -117,12 +131,12 @@
         }
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $id = $_POST["id_1"];
-            $name = $_POST["name"];
-            $price = $_POST["price"];
-            $protein = $_POST["p_value"];
+            $cust_id = $_POST["cust_id"];
+            $cust_name = $_POST["cust_name"];
+            $email = $_POST["email"];
+            $pass_word = $_POST["pass_word"];
 
-            $insertQuery = "INSERT INTO `juice` (juice_id, juice_name, juice_price, protein_value) VALUES ('$id', '$name', '$price', '$protein')";
+            $insertQuery = "INSERT INTO `admin` (ad_id, ad_name, ad_email, ad_pass) VALUES ('$cust_id','$cust_name', '$email', '$pass_word')";
 
             if (mysqli_query($conn, $insertQuery)) {
                 echo '<script>alert("Insertion successful!");</script>';
@@ -132,7 +146,7 @@
         }
 
         mysqli_close($conn);
-    ?>
+        ?>
     <footer>
         &copy Copyright Reserve₫ To Juice Center.
     </footer>

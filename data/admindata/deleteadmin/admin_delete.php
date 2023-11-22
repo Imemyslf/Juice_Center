@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juice data</title>
+    <title>Delete Admin Detail</title>
     <style>
      body {
             margin: 0;
@@ -44,7 +44,7 @@
             margin: 5vh;
             border: 2px solid black;
             border-radius: 10px;
-            padding: 20px;
+            padding: 10px;
             background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 300px;
@@ -58,8 +58,8 @@
         }
 
         input {
-            margin-bottom: 15px;
-            padding: 10px;
+            margin-bottom: 10px;
+            padding: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
@@ -88,7 +88,7 @@
     </style>
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <a href="../../h_data.html" target="_blank">Home</a>
             <a href="#" target="_blank">Contact Us</a>
@@ -96,45 +96,72 @@
         </nav>
     </header>
     <div id="formContainer">
-        <form action="" method="post">
-            id : <input type="number" name="id_1" placeholder="Enter your 4-digit id please"><br>
-            Juice Name: <input type="text" name="name" placeholder="Enter the Juice name please."><br>
-            Juice Price: <input type="text" name="price" placeholder="Enter the price of the juice"><br>
-            Protein value: <input type="text" name="p_value" placeholder="Enter Protein value of the juice."><br>
-            <input type="submit"> &nbsp;&nbsp; <input type="reset">
-        </form>
+    <form action="" method="post">
+    Customer id : <input type="number" name="ad_id" placeholder="Enter your 4-digit ID, please"><br><br>
+    <input type="submit" name="submit"> &nbsp;&nbsp; <input type="reset">
+</form>
     </div>
     
-    <?php
-        $server = "localhost";
-        $user = "root";
-        $password = "";
-        $database = "juice_c"; // Replace with your actual database name
-        $conn = mysqli_connect($server, $user, $password, $database);
+<?php
+$server = "localhost";
+$user = "root";
+$password = "";
+$database = "juice_c";
+$conn = mysqli_connect($server, $user, $password, $database);
 
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+    $ad_id = mysqli_real_escape_string($conn, $_POST["ad_id"]);
+
+    $selectQuery = "SELECT * FROM admin";
+    $result = mysqli_query($conn, $selectQuery);
+
+    if (!$result) {
+        die("Query failed: " . mysqli_error($conn));
+    }
+
+    $checkQuery = "SELECT * FROM admin WHERE ad_id = $ad_id";
+    $checkResult = mysqli_query($conn, $checkQuery);
+
+    if (!$checkResult) {
+        die("Query failed: " . mysqli_error($conn));
+    }
+
+    if (mysqli_num_rows($checkResult) > 0) {
+        // Record exists, proceed with delete
+        $deleteQuery = "DELETE FROM `admin` WHERE ad_id = $ad_id";
+
+        // Execute the delete query
+        if (mysqli_query($conn, $deleteQuery)) {
+            echo '<script>alert("Deleted successful!");</script>';
+        } else {
+            echo "Error deleting record: " . mysqli_error($conn);
         }
+    } else {
+        echo "Record with ID $ad_id does not exist";
+    }
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $id = $_POST["id_1"];
-            $name = $_POST["name"];
-            $price = $_POST["price"];
-            $protein = $_POST["p_value"];
+    // Display data
+    $selectQuery = "SELECT * FROM admin";
+    $result = mysqli_query($conn, $selectQuery);
 
-            $insertQuery = "INSERT INTO `juice` (juice_id, juice_name, juice_price, protein_value) VALUES ('$id', '$name', '$price', '$protein')";
+    if (!$result) {
+        die("Query failed: " . mysqli_error($conn));
+    }
+    
+}
 
-            if (mysqli_query($conn, $insertQuery)) {
-                echo '<script>alert("Insertion successful!");</script>';
-            } else {
-                echo "Error: " . $insertQuery . "<br>" . mysqli_error($conn);
-            }
-        }
-
-        mysqli_close($conn);
-    ?>
+mysqli_close($conn);
+?>
+        
+    </form>
     <footer>
         &copy Copyright Reserve₫ To Juice Center.
     </footer>
 </body>
 </html>
+
+
