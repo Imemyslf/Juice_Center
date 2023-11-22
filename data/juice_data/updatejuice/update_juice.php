@@ -20,7 +20,7 @@
         }
     </script>
     <style>
-            body {
+     body {
             margin: 0;
             padding: 0;
             background-color: #FFE4B5; /* Light orange background */
@@ -29,16 +29,17 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         header {
-            margin: 0px;
-            padding:0px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             background-color: #FFA500; /* Orange header background */
             padding: 10px;
             text-align: center;
-            width: 100%;
             box-sizing: border-box;
         }
 
@@ -90,10 +91,13 @@
         }
 
         footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             background-color: #FFA500; /* Orange footer background */
             padding: 10px;
             text-align: center;
-            width: 100%;
             box-sizing: border-box;
         }
     </style>

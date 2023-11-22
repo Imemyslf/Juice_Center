@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juice data</title>
     <style>
-        body {
+     body {
             margin: 0;
             padding: 0;
             background-color: #FFE4B5; /* Light orange background */
@@ -14,15 +14,17 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         header {
-            margin: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             background-color: #FFA500; /* Orange header background */
             padding: 10px;
             text-align: center;
-            width: 100%;
             box-sizing: border-box;
         }
 
@@ -74,10 +76,13 @@
         }
 
         footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             background-color: #FFA500; /* Orange footer background */
             padding: 10px;
             text-align: center;
-            width: 100%;
             box-sizing: border-box;
         }
     </style>

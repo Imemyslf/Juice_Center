@@ -27,8 +27,8 @@
 	// 			nutrition_value float
 	// 			)";
 	
-	$table = "ALTER TABLE `customer`
-	ADD COLUMN phone_number varchar(15) UNIQUE";
+	$table = "ALTER TABLE `sale`
+	CHANGE COLUMN available sold int(3) ";
 
 	
 	$r1 = mysqli_query($conn, $table);

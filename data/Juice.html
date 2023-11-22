@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juice Management</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #outerBox {
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #innerBox {
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #f0f8ff; /* Light blue background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(219, 150, 11); 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="outerBox">
+        <div id="innerBox">
+            <h2>Juice Management</h2>
+            <button><a href="./juice_data/insertjuice//insert_juice.php">Insert</a></button>
+            <button><a href="./juice_data/updatejuice/update_juice.php">Update</a></button>
+            <button><a href="./juice_data/deletejuice/juice_delete.php">Delete</a></button>
+            <button><a href="./juice_data/searchjuice/juice_search.php">Search</a></button>
+            <button><a href="./juice_data/Displayjuice/juice_display.php">Display</a></button>
+        </div>
+    </div>
+</body>
+</html>
