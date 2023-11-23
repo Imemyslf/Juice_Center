@@ -45,14 +45,14 @@
     $conn = mysqli_connect($server, $user, $password, $database);
 
     if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+        echo "Couldn't connect to Server";
     }
 
     $query = "SELECT * FROM juice WHERE juice_id IN (SELECT juice_id FROM sale WHERE sold > 10)";
     $result = mysqli_query($conn, $query);
 
     if (!$result) {
-        die("Query failed: " . mysqli_error($conn));
+        echo "Error in selecting subquery";
     }
 
     echo "<h2>High Sales Details</h2>";

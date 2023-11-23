@@ -45,7 +45,7 @@
     $conn = mysqli_connect($server, $user, $password, $database);
 
     if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+        echo "Connection failed";
     }
 
     // Creating the view
@@ -53,7 +53,7 @@
     $createViewResult = mysqli_query($conn, $createViewQuery);
 
     if (!$createViewResult) {
-        die("View creation failed: " . mysqli_error($conn));
+        echo "Error in creating view";
     }
 
     // Selecting from the view
@@ -61,7 +61,7 @@
     $selectViewResult = mysqli_query($conn, $selectViewQuery);
 
     if (!$selectViewResult) {
-        die("View selection failed: " . mysqli_error($conn));
+        echo "Error in selecting view";
     }
 
     echo "<h2>Customer Details View</h2>";
@@ -87,7 +87,7 @@
     $dropViewResult = mysqli_query($conn, $dropViewQuery);
 
     if (!$dropViewResult) {
-        die("View drop failed: " . mysqli_error($conn));
+        echo "Error in dropping the view";
     }
 
     mysqli_close($conn);

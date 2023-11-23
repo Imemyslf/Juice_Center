@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Registration</title>
+    <title>Update Customer</title>
     <style>
     body {
         margin: 0;
@@ -100,6 +100,21 @@
         box-sizing: border-box;
     }
     </style>
+    <script>
+    function showFields() {
+        var selectedFields = document.getElementById("updateFields").value;
+        var fields = ["Sold_value", "j_id"];
+
+        fields.forEach(function(field) {
+            var element = document.getElementById(field + "Container");
+            if (selectedFields.includes(field)) {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        });
+    }
+    </script>
 </head>
 
 <body>
@@ -107,10 +122,11 @@
         <nav>
             <a href="../../h_data.html" target="">Home<img src="../../../images/3d-house.png" alt="Home img"
                     width="20px"></a>
-            <a href="/project1/Juice_Center/dumu/contct.html" target="">Contact Us <img src="../../../images/info.png"
+            <a href="../../../dumu/contct.html" target="">Contact Us <img src="../../../images/info.png"
                     alt="Support img" width="20px"></a>
-            <a href="" target="">Sign up <img src="../../../images/user.png" alt="user img" width="20px"></a>
-            <a href="../updatesale/sale_update.php">Update<img src="../../../images/loading-arrow.png" alt="update img"
+            <a href="../../log_in.php" target="">Sign up <img src="../../../images/user.png" alt="user img"
+                    width="20px"></a>
+            <a href="../insertsale/sale_insert.php">insert <img src="../../../images/edit.png" alt="insert img"
                     width="20px"></a>
             <a href="../deletesale/sale_delete.php">Delete <img src="../../../images/delete-folder.png" alt="delete img"
                     width="20px"></a>
@@ -121,54 +137,79 @@
         </nav>
     </header>
     <div id="formContainer">
-        <h2 style="text-align: center;">Insert A Record In Sale</h2>
+        <h2>Update Sale Record</h2>
         <form action="" method="post">
-            <label for="sale_id">sale id:</label>
+            <label for="sale_id">Sale ID:</label>
             <input type="text" name="sale_id" required>
             <br><br>
 
-            <label for="sold">Sold:</label>
-            <input type="text" name="sold" required>
+            <label for="updateFields">Select Fields to Update:</label>
+            <select id="updateFields" name="updateFields[]" onchange="showFields()">
+                <option value="Sold_value">Sold</option>
+                <option value="j_id">Juice Id</option>
+            </select>
             <br><br>
 
-            <label for="j_id">Juice id:</label>
-            <input type="text" name="j_id" required>
-            <br><br>
+            <div id="Sold_valueContainer" style="display: none;">
+                <label for="Sold_value">Sold :</label>
+                <input type="text" name="Sold_value">
+                <br><br>
+            </div>
 
-            <input type="submit" value="Register">
-            <input type="reset" value="Reset">
+            <div id="j_idContainer" style="display: none;">
+                <label for="j_id">Juice Id:</label><br>
+                <input type="text" name="j_id">
+                <br><br>
+            </div>
+
+            <input type="submit" name="submit" value="Update">
         </form>
     </div>
 
+
     <?php
-        $server = "localhost";
-        $user = "root";
-        $password = "";
-        $database = "juice_c"; // Replace with your actual database name
-        $conn = mysqli_connect($server, $user, $password, $database);
+    $server = "localhost";
+    $user = "root";
+    $password = "";
+    $database = "juice_c";
+    $conn = mysqli_connect($server, $user, $password, $database);
 
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $sale_id = $_POST["sale_id"];
-            $sold = $_POST["sold"];
-            $juice_id = $_POST["j_id"];
-
-            $insertQuery = "INSERT INTO `sale` (s_id, sold, juice_id) VALUES ('$sale_id','$sold', '$juice_id')";
-
-            if (mysqli_query($conn, $insertQuery)) {
-                echo '<script>alert("Insertion successful!");</script>';
-            } else {
-                echo "Error: " . $insertQuery . "<br>" . mysqli_error($conn);
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+        $sale_id = $_POST["sale_id"];
+        $updateFields = $_POST["updateFields"];
+    
+        if (!empty($updateFields)) {
+            $updateQuery = "UPDATE `sale` SET ";
+    
+            foreach ($updateFields as $field) {
+                $value = mysqli_real_escape_string($conn, $_POST[$field]);
+                $updateQuery .= "$field = '$value', ";
             }
+    
+            // Remove the trailing comma and space
+            $updateQuery = rtrim($updateQuery, ', ');
+    
+            $updateQuery .= " WHERE s_id = $sale_id;";
+    
+            // Execute the update query
+            if (mysqli_query($conn, $updateQuery)) {
+                echo '<script>alert("Update successful!");</script>';
+            } else {
+                echo "Error updating record: " . mysqli_error($conn);
+            }
+        } else {
+            echo "No fields selected for update.";
         }
+    }
 
-        mysqli_close($conn);
-        ?>
+    mysqli_close($conn);
+    ?>
     <footer>
-        &copy Rights Reseved to Juice Center.
+        &copy
     </footer>
 </body>
 

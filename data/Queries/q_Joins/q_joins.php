@@ -29,7 +29,7 @@
             text-align: left;
             border-color:black; 
         }
-        
+
         th {
             background-color: #FFA500; /* Orange header background */
             color: white;
@@ -45,14 +45,14 @@
     $conn = mysqli_connect($server, $user, $password, $database);
 
     if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+        echo "Couldn't connect to Server";
     }
 
     $query = "SELECT juice_id, juice_name, juice_price, sold FROM juice NATURAL JOIN sale";
     $result = mysqli_query($conn, $query);
 
     if (!$result) {
-        die("Query failed: " . mysqli_error($conn));
+        echo "Error in joining the two tables";
     }
 
     echo "<h2>Juice Sales Details</h2>";

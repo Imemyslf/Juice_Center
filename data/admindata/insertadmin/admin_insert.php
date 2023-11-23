@@ -8,24 +8,27 @@
      body {
             margin: 0;
             padding: 0;
-            background-color: #FFE4B5; /* Light orange background */
+            background-image: url("../../../images/pexels-lukas-616409.jpg");  /* Replace with the path to your image */
+            background-size: cover; /* Adjust the background size as needed */
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            
         }
 
         header {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #FFA500; /* Orange header background */
-            padding: 10px;
-            text-align: center;
-            box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 228, 181, 0.7); /* Orange header background */
+    padding: 23px 8px;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(110, 0, 0, 0.4); /* Shadow at the bottom */
         }
 
         nav {
@@ -36,8 +39,11 @@
 
         nav a {
             text-decoration: none;
-            color: white;
             font-weight: bold;
+            font-size: 16px;
+            background: linear-gradient(to right, blue, orange);
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         #formContainer {
@@ -45,7 +51,7 @@
             border: 2px solid black;
             border-radius: 10px;
             padding: 10px;
-            background-color: white;
+            background-color: silver;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 300px;
             box-sizing: border-box;
@@ -58,7 +64,7 @@
         }
 
         input {
-            margin-bottom: 2px;
+            margin-bottom: 10px;
             padding: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -66,7 +72,7 @@
         }
 
         input[type="submit"], input[type="reset"] {
-            background-color: #FFA500;  
+            background-color: #FFA500;
             color: white;
             cursor: pointer;
         }
@@ -89,10 +95,14 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a href="../../h_data.html" target="_blank">Home</a>
-            <a href="#" target="_blank">Contact Us</a>
-            <a href="#" target="_blank">Sign up</a>
+    <nav>
+            <a href="../../h_data.html" target = "">Home<img src="../../../images/3d-house.png" alt="Home img" width="20px"></a>
+            <a href="../../../dumu/contct.html" target = "">Contact Us <img src="../../../images/info.png" alt="Support img" width="20px"></a>
+            <a href="../../Customber_data/insertcust/customer_data.php" target = "">Sign up <img src="../../../images/user.png" alt="user img" width="20px"></a> 
+            <a href="../updateadmin/admin_update.php">Update<img src="../../../images/loading-arrow.png" alt="update img" width="20px"></a>
+            <a href="../deleteadmin/admin_delete.php">Delete <img src="../../../images/delete-folder.png" alt="delete img" width="20px"></a>
+            <a href="../searchadmin/admin_search.php">Search<img src="../../../images/loupe.png" alt="search img" width="20px"></a>
+            <a href="../displayadmin/admin_display.php">Display<img src="../../../images/database-management.png" alt="display img" width="20px"></a>
         </nav>
     </header>
     <div id="formContainer">
@@ -148,7 +158,7 @@
         mysqli_close($conn);
         ?>
     <footer>
-        &copy Copyright Reserve₫ To Juice Center.
+    &copy ALL COPYRIGHT 2023 RESERVED TO JUICE CENTER.
     </footer>
 </body>
 </html>
