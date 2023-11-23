@@ -88,11 +88,11 @@
     </style>
 </head>
 <body>
-<header>
+    <header>
         <nav>
-            <a href="" target = "">Home</a>
-            <a href="" target = "">Contact Us</a>
-            <a href="" target = "">Sign up</a>
+            <a href="../../h_data.html" target="_blank">Home</a>
+            <a href="#" target="_blank">Contact Us</a>
+            <a href="#" target="_blank">Sign up</a>
         </nav>
     </header>
     <div id="formContainer">
@@ -153,7 +153,7 @@
         mysqli_close($conn);
         ?>
     <footer>
-        &copy
+        &copy Copyright Reserved To Juice Center.
     </footer>
 </body>
 </html>

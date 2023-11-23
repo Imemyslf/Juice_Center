@@ -90,72 +90,72 @@
 <body>
     <header>
         <nav>
-            <a href="" target = "">Home</a>
-            <a href="" target = "">Contact Us</a>
-            <a href="" target = "">Sign up</a>
+            <a href="../../h_data.html" target="_blank">Home</a>
+            <a href="#" target="_blank">Contact Us</a>
+            <a href="#" target="_blank">Sign up</a>
         </nav>
     </header>
     <div id="formContainer">
-    <form action="" method="post">
-    Customer id : <input type="number" name="cust_id" placeholder="Enter your 4-digit ID, please"><br><br>
-    <input type="submit" name="submit"> &nbsp;&nbsp; <input type="reset">
-</form>
+        <form action="" method="post">
+        Customer id : <input type="number" name="cust_id" placeholder="Enter your 4-digit ID, please"><br><br>
+        <input type="submit" name="submit"> &nbsp;&nbsp; <input type="reset">
+        </form>
     </div>
     
-<?php
-$server = "localhost";
-$user = "root";
-$password = "";
-$database = "juice_c";
-$conn = mysqli_connect($server, $user, $password, $database);
+    <?php
+    $server = "localhost";
+    $user = "root";
+    $password = "";
+    $database = "juice_c";
+    $conn = mysqli_connect($server, $user, $password, $database);
 
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-    $cust_sno = mysqli_real_escape_string($conn, $_POST["cust_id"]);
-
-    $selectQuery = "SELECT * FROM customer";
-    $result = mysqli_query($conn, $selectQuery);
-
-    if (!$result) {
-        die("Query failed: " . mysqli_error($conn));
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
     }
 
-    $checkQuery = "SELECT * FROM customer WHERE cust_sno = $cust_sno";
-    $checkResult = mysqli_query($conn, $checkQuery);
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+        $cust_sno = mysqli_real_escape_string($conn, $_POST["cust_id"]);
 
-    if (!$checkResult) {
-        die("Query failed: " . mysqli_error($conn));
-    }
+        $selectQuery = "SELECT * FROM customer";
+        $result = mysqli_query($conn, $selectQuery);
 
-    if (mysqli_num_rows($checkResult) > 0) {
-        // Record exists, proceed with delete
-        $deleteQuery = "DELETE FROM `customer` WHERE cust_sno = $cust_sno";
-
-        // Execute the delete query
-        if (mysqli_query($conn, $deleteQuery)) {
-            echo '<script>alert("Deleted successful!");</script>';
-        } else {
-            echo "Error deleting record: " . mysqli_error($conn);
+        if (!$result) {
+            die("Query failed: " . mysqli_error($conn));
         }
-    } else {
-        echo "Record with ID $cust_sno does not exist";
+
+        $checkQuery = "SELECT * FROM customer WHERE cust_sno = $cust_sno";
+        $checkResult = mysqli_query($conn, $checkQuery);
+
+        if (!$checkResult) {
+            die("Query failed: " . mysqli_error($conn));
+        }
+
+        if (mysqli_num_rows($checkResult) > 0) {
+            // Record exists, proceed with delete
+            $deleteQuery = "DELETE FROM `customer` WHERE cust_sno = $cust_sno";
+
+            // Execute the delete query
+            if (mysqli_query($conn, $deleteQuery)) {
+                echo '<script>alert("Deleted successful!");</script>';
+            } else {
+                echo "Error deleting record: " . mysqli_error($conn);
+            }
+        } else {
+            echo "Record with ID $cust_sno does not exist";
+        }
+
+        // Display data
+        $selectQuery = "SELECT * FROM customer";
+        $result = mysqli_query($conn, $selectQuery);
+
+        if (!$result) {
+            die("Query failed: " . mysqli_error($conn));
+        }
+
     }
 
-    // Display data
-    $selectQuery = "SELECT * FROM customer";
-    $result = mysqli_query($conn, $selectQuery);
-
-    if (!$result) {
-        die("Query failed: " . mysqli_error($conn));
-    }
-
-}
-
-mysqli_close($conn);
-?>
+    mysqli_close($conn);
+    ?>
         
     </form>
     <footer>

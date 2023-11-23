@@ -13,6 +13,7 @@
     <style>
         body {
             background-image: url(../images/j2.jpeg);
+            backdrop-filter: blur(5px);
             margin: 0;
             padding: 0;
             background-color: #FFE4B5; /* Light orange background */
@@ -22,7 +23,6 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            backdrop-filter: blur(5px);
         }
 
         #loginContainer {
@@ -58,54 +58,62 @@
         input[type="submit"]:hover {
             background-color: #FF8C00;
         }
+        #img1{
+            position:fixed;
+            top:0;
+            left:0;
+            width: 10vh;
+            height: 10vh;
+        }
     </style>
 </head>
 <body>
+    <!-- <img id = "img1" src="../images/fast-forward.gif" alt="image" height = "100vh" width="100vw"><br><br> -->
     <div id="loginContainer">
         <h2>Login</h2>
         <form action="" onsubmit = "redirecttoohome()" method="post">
             Email: <input type="text" name="email" placeholder="Enter your email" required><br>
             Password: <input type="password" name="password" placeholder="Enter your password" required><br>
-            <input type="submit" value="Login">
+            <input type="submit" >
         </form>
     </div>
     <?php
-$server = "localhost";
-$user = "root";
-$password = "";
-$database = "juice_c";
-$conn = mysqli_connect($server, $user, $password, $database);
+        $server = "localhost";
+        $user = "root";
+        $password = "";
+        $database = "juice_c";
+        $conn = mysqli_connect($server, $user, $password, $database);
 
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = mysqli_real_escape_string($conn, $_POST["email"]);
-    $password = mysqli_real_escape_string($conn, $_POST["password"]);
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $email = mysqli_real_escape_string($conn, $_POST["email"]);
+            $password = mysqli_real_escape_string($conn, $_POST["password"]);
 
-    // Check if the entered email and password match any record in the admin table
-    $query = "SELECT * FROM `admin` WHERE ad_email ='$email' AND ad_pass ='$password'";
-    $result = mysqli_query($conn, $query);
+            // Check if the entered email and password match any record in the admin table
+            $query = "SELECT * FROM `admin` WHERE ad_email ='$email' AND ad_pass ='$password'";
+            $result = mysqli_query($conn, $query);
 
-    if (!$result) {
-        die("Query failed: " . mysqli_error($conn));
-    }
+            if (!$result) {
+                die("Query failed: " . mysqli_error($conn));
+            }
 
-    if ($result ) {
-        // Login successful
-        // echo "Login successful";
-        header("Location: ../data/h_data.html");
-        exit();
-    } else {
-        // Login failed
-        header("Location: login_page.html?loginFailed=true");
-        exit();
-    }
-}
+            if ($result ) {
+                // Login successful
+                // echo "Login successful";
+                header("Location: ../data/h_data.html");
+                exit();
+            } else {
+                // Login failed
+                header("Location: login_page.html?loginFailed=true");
+                exit();
+            }
+        }
 
-mysqli_close($conn);
-?>
+        mysqli_close($conn);
+        ?>
 
-</body>
+        </body>
 </html>
