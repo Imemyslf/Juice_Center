@@ -22,7 +22,7 @@
         border: 2px solid #333;
         border-radius: 10px;
         padding: 20px;
-        background-color: #6a0000;
+        background-color: #c3b7b7;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
@@ -32,6 +32,46 @@
         padding: 20px;
         background-color: #f0f8ff; /* Light blue background */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 228, 181, 0.7);
+        /* Orange header background */
+        padding: 23px 8px;
+        text-align: center;
+        box-sizing: border-box;
+        box-shadow: 0 4px 8px rgba(110, 0, 0, 0.4);
+        /* Shadow at the bottom */
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-around;
+        margin: 0;
+      }
+
+      nav a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        background: linear-gradient(to right, blue, orange);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffa500;
+        /* Orange footer background */
+        padding: 10px;
+        text-align: center;
+        box-sizing: border-box;
       }
 
       h2 {
@@ -58,6 +98,32 @@
     </style>
   </head>
   <body>
+    <header>
+      <nav>
+        <!-- <a href="../data/h_data.html" target=""
+          >Home<img src="../images/3d-house.png" alt="Home img" width="20px"
+        /></a> -->
+        <a href="../dumu/contct.html" target=""
+          >Contact Us
+          <img src="../images/info.png" alt="Support img" width="20px"
+        /></a>
+        <a href="../data/Customber_data/insertcust/customer_data.php" target=""
+          >Sign up <img src="../images/user.png" alt="user img" width="20px"
+        /></a>
+        <a href="./Customer.html" target=""
+          >Customer<img
+            src="../images/3d-house.png"
+            alt="Home img"
+            width="20px"
+        /></a>
+        <a href="./Juice.html" target=""
+          >Juice<img src="../images/info.png" alt="Support img" width="20px"
+        /></a>
+        <a href="./admin.html" target=""
+          >Admin<img src="../images/user.png" alt="user img" width="20px"
+        /></a>
+      </nav>
+    </header>
     <div id="outerBox">
       <div id="innerBox">
         <h2>Sale Management</h2>
@@ -65,18 +131,19 @@
           <a href="./sale_data/insertsale/sale_insert.php">Insert</a>
         </button>
         <button>
-          <a href="./Customber_data/updatecust/u_c.php">Update</a>
+          <a href="./sale_data/updatesale/sale_update.php     ">Update</a>
         </button>
         <button>
           <a href="./sale_data/deletesale/sale_delete.php">Delete</a>
         </button>
         <button>
-          <a href="./Customber_data/search/customer_search.php">Search</a>
+          <a href="./sale_data/searchsale/sale_search.php">Search</a>
         </button>
         <button>
           <a href="./sale_data/displaysale/sale_display.php">Display</a>
         </button>
       </div>
     </div>
+    <footer>&copy ALL COPYRIGHT 2023 RESERVED TO JUICE CENTER.</footer>
   </body>
 </html>

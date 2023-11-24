@@ -99,15 +99,15 @@
             <a href="../../h_data.html" target = "">Home<img src="../../../images/3d-house.png" alt="Home img" width="20px"></a>
             <a href="../../../dumu/contct.html" target = "">Contact Us <img src="../../../images/info.png" alt="Support img" width="20px"></a>
             <a href="../../Customber_data/insertcust/customer_data.php" target = "">Sign up <img src="../../../images/user.png" alt="user img" width="20px"></a> 
+            <a href="../insertadmin/admin_insert.php">Insert <img src="../../../images/edit.png" alt="delete img" width="20px"></a>
             <a href="../updateadmin/admin_update.php">Update<img src="../../../images/loading-arrow.png" alt="update img" width="20px"></a>
-            <a href="../deleteadmin/admin_delete.php">Delete <img src="../../../images/delete-folder.png" alt="delete img" width="20px"></a>
             <a href="../searchadmin/admin_search.php">Search<img src="../../../images/loupe.png" alt="search img" width="20px"></a>
             <a href="../displayadmin/admin_display.php">Display<img src="../../../images/database-management.png" alt="display img" width="20px"></a>
         </nav>
     </header>
     <div id="formContainer">
     <form action="" method="post">
-    Admin id : <input type="number" name="ad_id" placeholder="Enter your 4-digit ID, please"><br><br>
+        Admin id : <input type="number" name="ad_id" placeholder="Enter your 3-digit ID, please"><br><br>
     <input type="submit" name="submit"> &nbsp;&nbsp; <input type="reset">
 </form>
     </div>

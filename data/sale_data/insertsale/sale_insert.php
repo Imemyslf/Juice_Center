@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Registration</title>
+    <title>Sale Data Insertion</title>
     <style>
     body {
         margin: 0;
@@ -124,15 +124,15 @@
         <h2 style="text-align: center;">Insert A Record In Sale</h2>
         <form action="" method="post">
             <label for="sale_id">sale id:</label>
-            <input type="text" name="sale_id" required>
+            <input type="text" name="sale_id" placeholder="Eg:1" required>
             <br><br>
 
             <label for="sold">Sold:</label>
-            <input type="text" name="sold" required>
+            <input type="text" name="sold" placeholder="Eg:10" required>
             <br><br>
 
             <label for="j_id">Juice id:</label>
-            <input type="text" name="j_id" required>
+            <input type="text" name="j_id" placeholder="Eg:1001" required>
             <br><br>
 
             <input type="submit" value="Register">
@@ -168,7 +168,7 @@
         mysqli_close($conn);
         ?>
     <footer>
-        &copy Rights Reseved to Juice Center.
+        &copy ALL COPYRIGHTS 2023 RESERVED TO JUICE CENTER.
     </footer>
 </body>
 

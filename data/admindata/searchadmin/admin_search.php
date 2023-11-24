@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Customer</title>
+    <title>Search Admin</title>
     <style>
      body {
             margin: 0;
@@ -46,6 +46,26 @@
             color: transparent;
         }
 
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #FFA500;
+            padding: 10px;
+            text-align: left;
+            border-color:black;
+            background-color: #cccccc;
+        }
+
+        th {
+            border: 1px solid #000000;
+            background-color: #FFA500;
+            color: white;
+        }
+        
         #formContainer {
             margin: 5vh;
             border: 2px solid black;
@@ -92,6 +112,25 @@
             box-sizing: border-box;
         }
     </style>
+    <script>
+        function showInput() {
+            var selectedField = document.getElementById("searchField").value;
+            var inputContainer = document.getElementById("inputContainer");
+            var inputType = "text";
+
+            // If the selected field is "email" or "pass_word", use type="password"
+            if (selectedField === "email") {
+                inputType = "email";
+            }
+            if (selectedField === "pass_word") {
+                inputType = "password";
+            }
+
+            // Display the input textbox
+            inputContainer.innerHTML = '<label for="searchValue">Enter ' + selectedField + ':</label>' +
+                '<input type="' + inputType + '" name="searchValue" id="searchValue" required>';
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -99,9 +138,9 @@
             <a href="../../h_data.html" target = "">Home<img src="../../../images/3d-house.png" alt="Home img" width="20px"></a>
             <a href="../../../dumu/contct.html" target = "">Contact Us <img src="../../../images/info.png" alt="Support img" width="20px"></a>
             <a href="../../Customber_data/insertcust/customer_data.php" target = "">Sign up <img src="../../../images/user.png" alt="user img" width="20px"></a> 
+            <a href="../insertadmin/admin_insert.php">Search<img src="../../../images/edit.png" alt="search img" width="20px"></a>
             <a href="../updateadmin/admin_update.php">Update<img src="../../../images/loading-arrow.png" alt="update img" width="20px"></a>
             <a href="../deleteadmin/admin_delete.php">Delete <img src="../../../images/delete-folder.png" alt="delete img" width="20px"></a>
-            <a href="../searchadmin/admin_search.php">Search<img src="../../../images/loupe.png" alt="search img" width="20px"></a>
             <a href="../displayadmin/admin_display.php">Display<img src="../../../images/database-management.png" alt="display img" width="20px"></a>
         </nav>
     </header>
@@ -114,7 +153,7 @@
             <option value="ad_id">Admin ID</option>
             <option value="ad_name">Admin Name</option>
             <option value="ad_email">Email</option>
-            <!-- <option value="pass_word">Password</option> -->
+            <option value="pass_word">Password</option>
         </select>
         <br><br>
 

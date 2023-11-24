@@ -1,72 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Juice Management</title>
     <style>
-        body {
-            background-image: url(../images/j2.jpeg);
-            backdrop-filter: blur(5px);
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+      body {
+        background-image: url(../images/j2.jpeg);
+        backdrop-filter: blur(5px);
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
 
-        #outerBox {
-            border: 2px solid #333;
-            border-radius: 10px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+      #outerBox {
+        border: 2px solid #333;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: #c3b7b7;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
-        #innerBox {
-            border: 2px solid #333;
-            border-radius: 10px;
-            padding: 20px;
-            background-color: #f0f8ff; /* Light blue background */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+      #innerBox {
+        border: 2px solid #333;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: #f0f8ff; /* Light blue background */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
-        h2 {
-            text-align: center;
-            color: #333;
-        }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 228, 181, 0.7);
+        /* Orange header background */
+        padding: 23px 8px;
+        text-align: center;
+        box-sizing: border-box;
+        box-shadow: 0 4px 8px rgba(110, 0, 0, 0.4);
+        /* Shadow at the bottom */
+      }
 
-        button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: rgb(219, 150, 11); 
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+      nav {
+        display: flex;
+        justify-content: space-around;
+        margin: 0;
+      }
 
-        a {
-            text-decoration: none;
-            color: white;
-        }
+      nav a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        background: linear-gradient(to right, blue, orange);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffa500;
+        /* Orange footer background */
+        padding: 10px;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: rgb(219, 150, 11);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <!-- <a href="../data/h_data.html" target=""
+          >Home<img src="../images/3d-house.png" alt="Home img" width="20px"
+        /></a> -->
+        <a href="../dumu/contct.html" target=""
+          >Contact Us
+          <img src="../images/info.png" alt="Support img" width="20px"
+        /></a>
+        <a href="../data/Customber_data/insertcust/customer_data.php" target=""
+          >Sign up <img src="../images/user.png" alt="user img" width="20px"
+        /></a>
+        <a href="./admin.html" target=""
+          >Admin<img src="../images/3d-house.png" alt="Home img" width="20px"
+        /></a>
+        <a href="./Juice.html" target=""
+          >Juice<img src="../images/info.png" alt="Support img" width="20px"
+        /></a>
+        <a href="./sale.html" target=""
+          >Sale<img src="../images/user.png" alt="user img" width="20px"
+        /></a>
+      </nav>
+    </header>
     <div id="outerBox">
-        <div id="innerBox">
-            <h2>Customer Management</h2>
-            <button><a href="./Customber_data/insertcust/customer_data.php">Insert</a></button>
-            <button><a href="./Customber_data/updatecust/u_c.php">Update</a></button>
-            <button><a href="./Customber_data/deletecust/customer_delete.php">Delete</a></button>
-            <button><a href="./Customber_data/search/customer_search.php">Search</a></button>
-            <button><a href="./Customber_data/displaycust/cust_display.php">Display</a></button>
-        </div>
+      <div id="innerBox">
+        <h2>Customer Management</h2>
+        <button>
+          <a href="./Customber_data/insertcust/customer_data.php">Insert</a>
+        </button>
+        <button>
+          <a href="./Customber_data/updatecust/u_c.php">Update</a>
+        </button>
+        <button>
+          <a href="./Customber_data/deletecust/customer_delete.php">Delete</a>
+        </button>
+        <button>
+          <a href="./Customber_data/search/customer_search.php">Search</a>
+        </button>
+        <button>
+          <a href="./Customber_data/displaycust/cust_display.php">Display</a>
+        </button>
+      </div>
     </div>
-</body>
+    <footer>&copy ALL COPYRIGHT 2023 RESERVED TO JUICE CENTER.</footer>
+  </body>
 </html>

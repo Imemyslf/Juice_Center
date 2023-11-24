@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Juice</title>
+    <title>Search Sales</title>
     <script>
     function showInput() {
         var selectedField = document.getElementById("searchField").value;
@@ -62,6 +62,27 @@
         color: transparent;
     }
 
+    table {
+        width: 50%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th,
+    td {
+        border: 1px solid #FFA500;
+        padding: 10px;
+        text-align: left;
+        border-color: black;
+        background-color: #cccccc;
+    }
+
+    th {
+        border: 1px solid #000000;
+        background-color: #FFA500;
+        color: white;
+    }
+
     #formContainer {
         margin: 5vh;
         border: 2px solid black;
@@ -111,6 +132,7 @@
         box-sizing: border-box;
     }
     </style>
+
 </head>
 
 <body>
@@ -122,11 +144,11 @@
                     alt="Support img" width="20px"></a>
             <a href="../../Customber_data/insertcust/customer_data.php" target="">Sign up <img
                     src="../../../images/user.png" alt="user img" width="20px"></a>
+            <a href="../insertsale/sale_insert.php">Insert <img src="../../../images/edit.png" alt="delete img"
+                    width="20px"></a>
             <a href="../updatesale/sale_update.php">Update<img src="../../../images/loading-arrow.png" alt="update img"
                     width="20px"></a>
             <a href="../deletesale/sale_delete.php">Delete <img src="../../../images/delete-folder.png" alt="delete img"
-                    width="20px"></a>
-            <a href="../searchsale/sale_search.php">Search<img src="../../../images/loupe.png" alt="search img"
                     width="20px"></a>
             <a href="../displaysale/sale_display.php">Display<img src="../../../images/database-management.png"
                     alt="display img" width="20px"></a>
@@ -138,9 +160,9 @@
 
             <label for="searchField">Select Field to Search:</label>
             <select id="searchField" name="searchField" onchange="showInput()">
-                <option value="sale_id">sale id:</option>
+                <option value="s_id">sale id:</option>
                 <option value="sold">Sold:</option>
-                <option value="j_id">juice id:</option>
+                <option value="juice_id">juice id:</option>
 
             </select>
             <br><br>
@@ -187,7 +209,6 @@
                 <th>Sale ID</th>
                 <th>Sold</th>
                 <th>Juice ID</th>
-               
                 </tr>";
 
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -211,7 +232,7 @@
     mysqli_close($conn);
     ?>
     <footer>
-        &copy Copyright © 2023 Juice Center
+    &copy ALL COPYRIGHTS 2023 RESERVED TO JUICE CENTER.
     </footer>
 </body>
 

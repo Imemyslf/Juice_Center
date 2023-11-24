@@ -103,7 +103,7 @@
     <script>
     function showFields() {
         var selectedFields = document.getElementById("updateFields").value;
-        var fields = ["Sold_value", "j_id"];
+        var fields = ["sold", "juice_id"];
 
         fields.forEach(function(field) {
             var element = document.getElementById(field + "Container");
@@ -126,7 +126,7 @@
                     alt="Support img" width="20px"></a>
             <a href="../../log_in.php" target="">Sign up <img src="../../../images/user.png" alt="user img"
                     width="20px"></a>
-            <a href="../insertsale/sale_insert.php">insert <img src="../../../images/edit.png" alt="insert img"
+            <a href="../insertsale/sale_insert.php">Insert <img src="../../../images/edit.png" alt="insert img"
                     width="20px"></a>
             <a href="../deletesale/sale_delete.php">Delete <img src="../../../images/delete-folder.png" alt="delete img"
                     width="20px"></a>
@@ -139,26 +139,26 @@
     <div id="formContainer">
         <h2>Update Sale Record</h2>
         <form action="" method="post">
-            <label for="sale_id">Sale ID:</label>
-            <input type="text" name="sale_id" required>
+            <label for="s_id">Sale ID:</label>
+            <input type="text" name="s_id" placeholder="Eg:1" required>
             <br><br>
 
             <label for="updateFields">Select Fields to Update:</label>
             <select id="updateFields" name="updateFields[]" onchange="showFields()">
-                <option value="Sold_value">Sold</option>
-                <option value="j_id">Juice Id</option>
+                <option value="sold">Sold</option>
+                <option value="juice_id">Juice Id</option>
             </select>
             <br><br>
 
-            <div id="Sold_valueContainer" style="display: none;">
-                <label for="Sold_value">Sold :</label>
-                <input type="text" name="Sold_value">
+            <div id="soldContainer" style="display: none;">
+                <label for="sold">Sold :</label>
+                <input type="text" name="sold" placeholder="Eg:10">
                 <br><br>
             </div>
 
-            <div id="j_idContainer" style="display: none;">
-                <label for="j_id">Juice Id:</label><br>
-                <input type="text" name="j_id">
+            <div id="juice_idContainer" style="display: none;">
+                <label for="juice_id">Juice Id:</label><br>
+                <input type="text" name="juice_id" placeholder="Eg:1001">
                 <br><br>
             </div>
 
@@ -179,7 +179,7 @@
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-        $sale_id = $_POST["sale_id"];
+        $sale_id = $_POST["s_id"];
         $updateFields = $_POST["updateFields"];
     
         if (!empty($updateFields)) {
@@ -209,7 +209,7 @@
     mysqli_close($conn);
     ?>
     <footer>
-        &copy
+        &copy ALL COPYRIGHTS 2023 RESERVED TO JUICE CENTER.
     </footer>
 </body>
 

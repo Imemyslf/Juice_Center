@@ -109,19 +109,19 @@
     <h2>Admin Registration</h2>
     <form action="" method="post">
         <label for="cust_id">Admin id:</label>
-        <input type="text" name="cust_id" required>
+        <input type="text" name="cust_id" placeholder="Eg:101" required>
         <br><br>
 
         <label for="cust_name">Admin Name:</label>
-        <input type="text" name="cust_name" required>
+        <input type="text" name="cust_name" placeholder="Eg:Prathamesh" required>
         <br><br>
 
         <label for="email">Email:</label>
-        <input type="email" name="email" required>
+        <input type="email" name="email" placeholder="Eg:sp@aitdgoa.edu.in" required>
         <br><br>
 
         <label for="pass_word">Password:</label>
-        <input type="password" name="pass_word" required>
+        <input type="password" name="pass_word" placeholder="" required>
         <br><br>
 
         <input type="submit" value="Register">

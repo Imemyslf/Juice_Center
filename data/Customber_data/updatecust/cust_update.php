@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Admin</title>
+    <title>Update Customer</title>
     <style>
     body {
         margin: 0;
@@ -103,7 +103,7 @@
     <script>
     function showFields() {
         var selectedFields = document.getElementById("updateFields").value;
-        var fields = ["ad_name", "ad_email", "ad_pass"];
+        var fields = ["cust_name", "email", "pass_word", "phone_number"];
 
         fields.forEach(function(field) {
             var element = document.getElementById(field + "Container");
@@ -126,45 +126,53 @@
                     alt="Support img" width="20px"></a>
             <a href="../../Customber_data/insertcust/customer_data.php" target="">Sign up <img
                     src="../../../images/user.png" alt="user img" width="20px"></a>
-            <a href="../insertadmin/admin_insert.php">Insert<img src="../../../images/edit.png" alt="update img"
+            <a href="../insertcust/customer_data.php">Insert <img src="../../../images/edit.png" alt="delete img"
                     width="20px"></a>
-            <a href="../deleteadmin/admin_delete.php">Delete <img src="../../../images/delete-folder.png"
+            <a href="../deletecust/customer_delete.php">Delete <img src="../../../images/delete-folder.png"
                     alt="delete img" width="20px"></a>
-            <a href="../searchadmin/admin_search.php">Search<img src="../../../images/loupe.png" alt="search img"
+            <a href="../searchcust/customer_search.php">Search<img src="../../../images/loupe.png" alt="search img"
                     width="20px"></a>
-            <a href="../displayadmin/admin_display.php">Display<img src="../../../images/database-management.png"
+            <a href="../displaycust/cust_display.php">Display<img src="../../../images/database-management.png"
                     alt="display img" width="20px"></a>
         </nav>
     </header>
     <div id="formContainer">
-        <h2>Update Admin</h2>
+        <h2>Update Customer</h2>
         <form action="" method="post">
-            <label for="ad_id">Admin ID:</label>
-            <input type="text" name="ad_id" placeholder="Eg: 104" required>
+            <label for="cust_id">Customer ID:</label>
+            <input type="text" name="cust_id" placeholder="Eg:1" required>
             <br><br>
 
             <label for="updateFields">Select Fields to Update:</label>
             <select id="updateFields" name="updateFields[]" onchange="showFields()">
-                <option value="ad_name">Admin Name</option>
-                <option value="ad_email">Email</option>
+                <option value="cust_name">Customer Name</option>
+                <option value="email">Email</option>
+                <option value="pass_word">Password</option>
+                <option value="phone_number">Phone Number</option>
             </select>
             <br><br>
 
-            <div id="ad_nameContainer" style="display: none;">
-                <label for="ad_name">Admin Name:</label>
-                <input type="text" name="ad_name" placeholder="Eg:Shruti">
+            <div id="cust_nameContainer" style="display: none;">
+                <label for="cust_name">Customer Name:</label>
+                <input type="text" name="cust_name" placeholder="Eg:Kishan">
                 <br><br>
             </div>
 
-            <div id="ad_emailContainer" style="display: none;">
-                <label for="ad_email">Email:</label><br>
-                <input type="email" name="ad_email" placeholder="Eg:ks@aitdgoa.edu.in">
+            <div id="emailContainer" style="display: none;">
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" placeholder="Eg:ks@gmail.com">
                 <br><br>
             </div>
 
-            <div id="ad_pass" style="display: none;">
-                <label for="ad_pass">Password:</label>
-                <input type="password" name="ad_pass" placeholder="Eg:Sahil">
+            <div id="pass_wordContainer" style="display: none;">
+                <label for="pass_word">Password:</label>
+                <input type="password" name="pass_word" minlength="6" maxlenght="10" placeholder="">
+                <br><br>
+            </div>
+
+            <div id="phone_numberContainer" style="display: none;">
+                <label for="phone_number">Phone Number:</label>
+                <input type="text" name="phone_number" maxlenght="10" placeholder="Eg:1234567890">
                 <br><br>
             </div>
 
@@ -181,15 +189,15 @@
     $conn = mysqli_connect($server, $user, $password, $database);
 
     if (!$conn) {
-        echo "Couldn't connect to Server";
+        die("Connection failed: " . mysqli_connect_error());
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-        $ad_id = $_POST["ad_id"];
+        $cust_sno = $_POST["cust_id"];
         $updateFields = $_POST["updateFields"];
 
         if (!empty($updateFields)) {
-            $updateQuery = "UPDATE `admin` SET ";
+            $updateQuery = "UPDATE `customer` SET ";
 
             foreach ($updateFields as $field) {
                 $value = mysqli_real_escape_string($conn, $_POST[$field]);
@@ -199,7 +207,7 @@
             // Remove the trailing comma and space
             $updateQuery = rtrim($updateQuery, ', ');
 
-            $updateQuery .= " WHERE ad_id = $ad_id";
+            $updateQuery .= " WHERE cust_sno = $cust_sno";
 
             // Execute the update query
             if (mysqli_query($conn, $updateQuery)) {
